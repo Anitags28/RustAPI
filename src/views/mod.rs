@@ -1,5 +1,6 @@
 mod auth;
-mod to_do;          // define the module
+mod to_do;          
+// define the module
 use auth::auth_views_factory;
 use to_do::to_do_views_factory;  // import the factory
 use actix_web::web::ServiceConfig;

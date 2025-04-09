@@ -13,7 +13,7 @@ impl Done {
             title: input_title.to_string(),
             status: TaskStatus::DONE,
         };
-        return Done { super_struct: base };
+        return Done { super_struct: base }
     }
 }
 

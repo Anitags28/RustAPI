@@ -1,5 +1,6 @@
 use serde::Serialize;
 use std::vec::Vec;
+
 use serde_json::value::Value;
 use serde_json::Map;
 
@@ -52,19 +53,11 @@ impl ToDoItems {
         let mut array_buffer = Vec::new();
 
         for (key, value) in state {
-            let status = TaskStatus::from_string(value.as_str().unwrap().to_string());
-            let item = to_do_factory(
-                &key, status);
+            let status = TaskStatus::from_string(&value.as_str().unwrap().to_string());
+            let item = to_do_factory(&key, status);
             array_buffer.push(item);
         }
         return ToDoItems::new(array_buffer)
-    }
-    pub fn filter_by_status(status: TaskStatus) -> Vec<ToDoItem> {
-        let items = Self::get_state();
-        items.iter()
-            .filter(|item| item.status == status.stringify())
-            .cloned()
-            .collect()
     }    
 }
 
